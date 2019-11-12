@@ -311,6 +311,11 @@
         
           
             <h2 id="MySQL忘记ROOT密码怎么办"><a href="#MySQL忘记ROOT密码怎么办" class="headerlink" title="MySQL忘记ROOT密码怎么办"></a>MySQL忘记ROOT密码怎么办</h2><p>1.用root权限编辑MySQL的配置文件my.cnf配置文件，该配置文件可能在/etc/my.cnf 中，需要根据实际情况查找。vim /etc/my.cnf<br>2.在[mysqld]下添加skip-grant-tables，然后保存并退出<br>结果如：<br>     [mysqld]<br>     skip-grant-tables<br>3.重启mysql服务：service mysqld restart。重启后的MySQL数据库就是一个不需要验证root密码就能以root身份登陆的数据库了。<br>4.修改root密码：<br>MySQL&gt; UPDATE mysql.user SET Password=PASSWORD(‘新密码’) where USER=’root’;<br>MySQL&gt; flush privileges;<br>MySQL&gt; exit<br>5.最后把/etc/my.cnf中的skip-grant-tables注释掉，然后重启mysql，就能以新设的root密码登陆了。</p>
+<h2 id="MySQL创建用户与授权"><a href="#MySQL创建用户与授权" class="headerlink" title="MySQL创建用户与授权"></a>MySQL创建用户与授权</h2><p>url <a href="https://www.jianshu.com/p/d7b9c468f20d" target="_blank" rel="noopener">https://www.jianshu.com/p/d7b9c468f20d</a></p>
+<h2 id="远端访问mysql数据库报10061错误"><a href="#远端访问mysql数据库报10061错误" class="headerlink" title="远端访问mysql数据库报10061错误"></a>远端访问mysql数据库报10061错误</h2><p>1、首先去/etc/mysql/下找到my.ini文件，但是我的文件夹里面没有my.ini文件，用locate my.ini，find / -name my.ini 命令也无法找到my.ini文件</p>
+<p>2、找不到my.ini，看到有人修改/etc/mysql/my.cnf文件也能够达到访问数据库的效果，怎想我在my.cnf文件里找不到bind-address=127.0.0.1这一行，说明也不再我的my.cnf配置文件里</p>
+<p>3、终于在/etc/mysql/mysql.conf.d/mysqld.cnf里面知道了bind-address=127.0.0.1这一行，把它修改成bind-address=0.0.0.0</p>
+<h2 id="重启mysql："><a href="#重启mysql：" class="headerlink" title="重启mysql："></a>重启mysql：</h2><p>方式一：sudo/etc/init.d/mysql restart<br>方式二：sudo service mysql restar</p>
 
           
         
