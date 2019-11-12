@@ -79,16 +79,16 @@
 
 
 
+<meta name="description" content="MySQL忘记ROOT密码怎么办1.用root权限编辑MySQL的配置文件my.cnf配置文件，该配置文件可能在&#x2F;etc&#x2F;my.cnf 中，需要根据实际情况查找。vim &#x2F;etc&#x2F;my.cnf2.在[mysqld]下添加skip-grant-tables，然后保存并退出结果如：     [mysqld]     skip-grant-tables3.重启mysql服务：service mysqld">
 <meta name="keywords" content="Free">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MySQL忘记ROOT密码怎么办">
+<meta property="og:title" content="MySQL使用系列">
 <meta property="og:url" content="https:&#x2F;&#x2F;duliang.xyz&#x2F;2019&#x2F;11&#x2F;11&#x2F;MySQL%E5%BF%98%E8%AE%B0ROOT%E5%AF%86%E7%A0%81%E6%80%8E%E4%B9%88%E5%8A%9E&#x2F;index.html">
-<meta property="og:site_name" content="杜亮的博客">
+<meta property="og:site_name" content="亮亮的博客">
+<meta property="og:description" content="MySQL忘记ROOT密码怎么办1.用root权限编辑MySQL的配置文件my.cnf配置文件，该配置文件可能在&#x2F;etc&#x2F;my.cnf 中，需要根据实际情况查找。vim &#x2F;etc&#x2F;my.cnf2.在[mysqld]下添加skip-grant-tables，然后保存并退出结果如：     [mysqld]     skip-grant-tables3.重启mysql服务：service mysqld">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="https:&#x2F;&#x2F;duliang.xyz&#x2F;.xyz&#x2F;&#x2F;2.jpg">
-<meta property="og:updated_time" content="2019-11-12T06:38:35.735Z">
+<meta property="og:updated_time" content="2019-11-12T07:21:12.528Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="https:&#x2F;&#x2F;duliang.xyz&#x2F;.xyz&#x2F;&#x2F;2.jpg">
 
 
 
@@ -124,7 +124,7 @@
 
 
 
-  <title>MySQL忘记ROOT密码怎么办 | 杜亮的博客</title>
+  <title>MySQL使用系列 | 亮亮的博客</title>
   
 
 
@@ -164,7 +164,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">杜亮的博客</span>
+        <span class="site-title">亮亮的博客</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -250,7 +250,7 @@
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="杜亮的博客">
+      <meta itemprop="name" content="亮亮的博客">
     </span>
 
     
@@ -258,7 +258,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MySQL忘记ROOT密码怎么办</h1>
+          <h1 class="post-title" itemprop="name headline">MySQL使用系列</h1>
         
 
         <div class="post-meta">
@@ -308,7 +308,7 @@
       
 
       
-        <p><img src="/.xyz//2.jpg" alt="alt tu"></p>
+        <h2 id="MySQL忘记ROOT密码怎么办"><a href="#MySQL忘记ROOT密码怎么办" class="headerlink" title="MySQL忘记ROOT密码怎么办"></a>MySQL忘记ROOT密码怎么办</h2><p>1.用root权限编辑MySQL的配置文件my.cnf配置文件，该配置文件可能在/etc/my.cnf 中，需要根据实际情况查找。vim /etc/my.cnf<br>2.在[mysqld]下添加skip-grant-tables，然后保存并退出<br>结果如：<br>     [mysqld]<br>     skip-grant-tables<br>3.重启mysql服务：service mysqld restart。重启后的MySQL数据库就是一个不需要验证root密码就能以root身份登陆的数据库了。<br>4.修改root密码：<br>MySQL&gt; UPDATE mysql.user SET Password=PASSWORD(‘新密码’) where USER=’root’;<br>MySQL&gt; flush privileges;<br>MySQL&gt; exit<br>5.最后把/etc/my.cnf中的skip-grant-tables注释掉，然后重启mysql，就能以新设的root密码登陆了。</p>
 
       
     </div>
@@ -393,8 +393,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -409,7 +418,7 @@
               
                 <a href="/archives/%20%7C%7C%20archive">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -436,6 +445,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MySQL忘记ROOT密码怎么办"><span class="nav-number">1.</span> <span class="nav-text">MySQL忘记ROOT密码怎么办</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
